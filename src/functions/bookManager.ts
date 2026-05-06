@@ -24,43 +24,45 @@
 import { Book } from "../types";
 import { books } from "../data/books";
 
-export function addBook( book: Book ) {
+export function addBook( book: Book ): void {
   books.push(book);
+  console.log(`Buku berhasil ditambahkan : "${book.title}" oleh ${book.author} ( ${book.publicationYear} )`)
 }
 
-export function listBooks() {
+export function listBooks(): void {
   if ( books.length === 0 ) {
-    console.log(`Belum ada buku`)
+    console.log(`Belum ada buku yang tersimpan`)
   } else {
+    console.log('\nDaftar semua buku :')
     books.forEach((book, index) => {
       console.log(`${index + 1}. ${book.title}`);
-      console.log(`Pengarang: ${book.author}`);
-      console.log(`Tahun: ${book.publicationYear}`);
+      console.log(`   Pengarang    : ${book.author}`);
+      console.log(`   Tahun Terbit : ${book.publicationYear}`);
     })
   }
 }
 
-export function searchBook( title?: string ) {
-  if ( !title ) {
-    console.log('Keyword kosong, menampilkan semua buku :')
+export function searchBook( title?: string ): void {
+  if ( !title || title.trim() === '' ) {
+    console.log('\nAnda tidak memasukkan keyword yang dicari, menampilkan semua buku :')
     listBooks();
     return;
   }
 
-  const keywordTitle = title.toLowerCase();
+  const keywordTitle = title.toLowerCase().trim();
   const filteredBook = books.filter(book => book.title.toLowerCase().includes(keywordTitle)
   )
 
   if ( filteredBook.length === 0 ) {
-    console.log(`Tidak ditemukan buku dengan judul ${title}.`)
+    console.log(`\nTidak ditemukan buku dengan judul mengandung keyword "${title}".`)
     return;
   }
 
-  console.log(`Hasil pencarian ${title} :`);
+  console.log(`\nHasil pencarian dengan keyword "${title}" (${filteredBook.length} ditemukan) :`);
 
   filteredBook.forEach((book, index) => {
     console.log(`${index + 1}. ${book.title}`);
-    console.log(`Pengarang: ${book.author}`);
-    console.log(`Tahun: ${book.publicationYear}`);
+    console.log(`   Pengarang    : ${book.author}`);
+    console.log(`   Tahun Terbit : ${book.publicationYear}`);
   })
 }
