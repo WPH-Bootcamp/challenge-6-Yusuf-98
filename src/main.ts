@@ -16,6 +16,8 @@ import { Book } from "./types";
 import { books } from "./data/books";
 import { addBook, listBooks, searchBook } from "./functions/bookManager";
 
+
+// Membuat data dummy buku untuk testing //
 const book1: Book = {
   title: "Laskar Pelangi",
   author: "Andrea Hirata",
@@ -36,16 +38,22 @@ const book3: Book = {
 
 // --- Test Aplikasi --- //
 
+// 1. Menambahkan buku //
 addBook(book1);
 addBook(book2);
 addBook(book3);
 
+// Melihat dalam Array apakah penambahan buku sudah berhasil //
 console.log(books)
 
+// 2. Uji fungsi listbook untuk melihat semua data //
 listBooks();
 
-searchBook('clean');
+// 3. Uji fungsi searchBook dengan keyword ditemukan //
+searchBook('cle');
 
+// 4. Uji fungsi searchBook dengan keyword tidak ditemukan //
 searchBook('harry');
 
+// 5. Uji funsi searchBook dengan keyword kosong / parameter tidak diberikan //
 searchBook();
