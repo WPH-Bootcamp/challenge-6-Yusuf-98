@@ -15,7 +15,7 @@ console.log("=====================================");
 console.log("by - Yusuf AR\n")
 
 import { Book } from "./types";
-import { books } from "./data/books";
+import { books } from "./data/books"; //--diperlukan oleh console.log(books)--//
 import { addBook, listBooks, searchBook } from "./functions/bookManager";
 
 
