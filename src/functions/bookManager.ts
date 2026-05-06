@@ -21,3 +21,46 @@
 // Petunjuk: jika parameter title diberikan, cari buku yang cocok
 //           jika tidak diberikan, tampilkan semua buku atau berikan informasi yang sesuai
 
+import { Book } from "../types";
+import { books } from "../data/books";
+
+export function addBook( book: Book ) {
+  books.push(book);
+}
+
+export function listBooks() {
+  if ( books.length === 0 ) {
+    console.log(`Belum ada buku`)
+  } else {
+    books.forEach((book, index) => {
+      console.log(`${index + 1}. ${book.title}`);
+      console.log(`Pengarang: ${book.author}`);
+      console.log(`Tahun: ${book.publicationYear}`);
+    })
+  }
+}
+
+export function searchBook( title?: string ) {
+  if ( !title ) {
+    console.log('Keyword kosong, menampilkan semua buku :')
+    listBooks();
+    return;
+  }
+
+  const keywordTitle = title.toLowerCase();
+  const filteredBook = books.filter(book => book.title.toLowerCase().includes(keywordTitle)
+  )
+
+  if ( filteredBook.length === 0 ) {
+    console.log(`Tidak ditemukan buku dengan judul ${title}.`)
+    return;
+  }
+
+  console.log(`Hasil pencarian ${title} :`);
+
+  filteredBook.forEach((book, index) => {
+    console.log(`${index + 1}. ${book.title}`);
+    console.log(`Pengarang: ${book.author}`);
+    console.log(`Tahun: ${book.publicationYear}`);
+  })
+}
