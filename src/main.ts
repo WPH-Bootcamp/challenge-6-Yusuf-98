@@ -12,6 +12,8 @@ console.log("=====================================");
 
 // Mulai pengujian di bawah ini
 
+console.log("by - Yusuf AR\n")
+
 import { Book } from "./types";
 import { books } from "./data/books";
 import { addBook, listBooks, searchBook } from "./functions/bookManager";
@@ -44,7 +46,7 @@ addBook(book2);
 addBook(book3);
 
 // Melihat dalam Array apakah penambahan buku sudah berhasil //
-console.log(books)
+// console.log(books)
 
 // 2. Uji fungsi listbook untuk melihat semua data //
 listBooks();
