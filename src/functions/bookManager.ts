@@ -34,14 +34,14 @@ export function addBook( book: Book ): void {
 export function listBooks(): void {
   if ( books.length === 0 ) { //--jika tidak ada isi dalam daftar buku--//
     console.log(`Belum ada buku yang tersimpan`) 
-  } else {
-    console.log('\nDaftar semua buku :') //--\n untukpengosongan line sebelumnya--//
-    books.forEach((book, index) => { //--forEach untuk mengolah setiap data dalam daftar buku--//
-      console.log(`${index + 1}. ${book.title}`); //--3 baris console.log supaya rapi--//
-      console.log(`   Pengarang    : ${book.author}`);
-      console.log(`   Tahun Terbit : ${book.publicationYear}`);
-    })
-  }
+    return; //--return hanya untuk menghentikan eksekusi fungsi lebih awal--//
+  } 
+  console.log('\nDaftar semua buku :') //--\n untukpengosongan line sebelumnya--//
+  books.forEach((book, index) => { //--forEach untuk mengolah setiap data dalam daftar buku--//
+    console.log(`${index + 1}. ${book.title}`); //--3 baris console.log supaya rapi--//
+    console.log(`   Pengarang    : ${book.author}`);
+    console.log(`   Tahun Terbit : ${book.publicationYear}`);
+  })  
 }
 
 // --- Mencari buku berdasarkan judul (case-insensitive) --- //
@@ -67,7 +67,7 @@ export function searchBook( title?: string ): void {
   // --jika 2 kondisi "if" di atas tidak terpenuhi maka dibawah ini yang akan dieksekusi-- //
   console.log(`\nHasil pencarian dengan keyword "${title}" (${filteredBook.length} ditemukan) :`);
 
-  filteredBook.forEach((book, index) => { //--forEach untuk mengolah setiap data hasil filter--//
+  filteredBook.forEach((book, index) => { //--forEach() untuk mengolah setiap data hasil filter--//
     console.log(`${index + 1}. ${book.title}`);
     console.log(`   Pengarang    : ${book.author}`);
     console.log(`   Tahun Terbit : ${book.publicationYear}`);
