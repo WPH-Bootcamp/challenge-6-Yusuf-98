@@ -4,6 +4,8 @@
 
 // Membuat Array untuk menyimpan data buku
 
-import { Book } from '../types/index'
+import Book from '../types/index'
 
-export const books: Book[] = [];
+const books: Book[] = [];
+
+export default books;

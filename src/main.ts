@@ -14,8 +14,8 @@ console.log("=====================================");
 
 console.log("by - Yusuf AR\n")
 
-import { Book } from "./types";
-import { books } from "./data/books"; //--diperlukan oleh console.log(books)--//
+import Book from "./types";
+import books from "./data/books"; //--diperlukan oleh console.log(books) jika mau di running juga--//
 import { addBook, listBooks, searchBook } from "./functions/bookManager";
 
 
