@@ -5,8 +5,10 @@
 
 // Mendefinisikan tipe Book menggunakan type alias
 
-export type Book = {
+type Book = {
   title: string;
   author: string;
   publicationYear: number;
 }
+
+export default Book;

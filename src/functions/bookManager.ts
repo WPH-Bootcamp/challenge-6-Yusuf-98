@@ -21,8 +21,8 @@
 // Petunjuk: jika parameter title diberikan, cari buku yang cocok
 //           jika tidak diberikan, tampilkan semua buku atau berikan informasi yang sesuai
 
-import { Book } from "../types";
-import { books } from "../data/books";
+import Book from "../types";
+import books from "../data/books";
 
 // --- Menambahkan buku baru ke dalam daftar buku --- //
 export function addBook( book: Book ): void {
