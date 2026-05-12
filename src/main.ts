@@ -15,7 +15,6 @@ console.log("=====================================");
 console.log("by - Yusuf AR\n")
 
 import Book from "./types";
-import books from "./data/books"; //--diperlukan oleh console.log(books) jika mau di running juga--//
 import { addBook, listBooks, searchBook } from "./functions/bookManager";
 
 
@@ -45,9 +44,6 @@ addBook(book1);
 addBook(book2);
 addBook(book3);
 
-// Melihat dalam Array apakah penambahan buku sudah berhasil //
-// console.log(books)
-
 // 2. Uji fungsi listbook untuk melihat semua data //
 listBooks();
 
@@ -57,5 +53,5 @@ searchBook('cle');
 // 4. Uji fungsi searchBook dengan keyword tidak ditemukan //
 searchBook('harry');
 
-// 5. Uji funsi searchBook dengan keyword kosong / parameter tidak diberikan //
+// 5. Uji fungsi searchBook dengan keyword kosong / parameter tidak diberikan //
 searchBook();
