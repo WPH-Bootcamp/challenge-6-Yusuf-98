@@ -26,19 +26,19 @@ import books from "../data/books";
 
 // --- Menambahkan buku baru ke dalam daftar buku --- //
 export function addBook( book: Book ): void {
-  books.push(book); //--push untuk menambahkan data buku baru ke akhir daftar buku--/
+  books.push(book); 
   console.log(`Buku berhasil ditambahkan : "${book.title}" oleh ${book.author} ( ${book.publicationYear} )`)
 }
 
 // --- Menampilkan semua buku yang tersimpan --- //
 export function listBooks(): void {
-  if ( books.length === 0 ) { //--jika tidak ada isi dalam daftar buku--//
+  if ( books.length === 0 ) { 
     console.log(`Belum ada buku yang tersimpan`) 
-    return; //--return hanya untuk menghentikan eksekusi fungsi lebih awal--//
+    return; 
   } 
-  console.log('\nDaftar semua buku :') //--\n untukpengosongan line sebelumnya--//
-  books.forEach((book, index) => { //--forEach untuk mengolah setiap data dalam daftar buku--//
-    console.log(`${index + 1}. ${book.title}`); //--3 baris console.log supaya rapi--//
+  console.log('\nDaftar semua buku :') 
+  books.forEach((book, index) => { 
+    console.log(`${index + 1}. ${book.title}`); 
     console.log(`   Pengarang    : ${book.author}`);
     console.log(`   Tahun Terbit : ${book.publicationYear}`);
   })  
@@ -48,16 +48,16 @@ export function listBooks(): void {
 // --- Jika tidak ada keyword yang diberikan, tampilkan semua buku --- //
 export function searchBook( title?: string ): void {
 
-  if ( !title || title.trim() === '' ) { //--trim() untuk menghilangkan spasi di depan dan belakang keyword yg mungkin ada karena kesengajaan atau ketidaksengajaan--//
+  if ( !title || title.trim() === '' ) { 
     console.log('\nAnda tidak memasukkan keyword yang dicari, menampilkan semua buku :')
-    listBooks(); //--memanggil fungsi listBooks() untuk menampilkan semua data buku--//
-    return; //--return hanya untuk menghentikan eksekusi fungsi lebih awal--//
+    listBooks(); 
+    return; 
   }
 
   // --pemisahan menjadi 2 variabel agar parameter dalam includes tidak terlalu panjang--//
-  const keywordTitle = title.toLowerCase().trim(); //--penambahan trim() selain hanya memakai toLowerCase() agar adanya spasi di depan atau di belakang keyword tidak mengacaukan eksekusi fungsi--//
+  const keywordTitle = title.toLowerCase().trim();  
   const filteredBook = books.filter(book => book.title.toLowerCase().includes(keywordTitle)
-  ) //--filter() digunakan untuk mencari data yang sesuai dengan keyword--//
+  ) 
 
   if ( filteredBook.length === 0 ) { //--jika hasil filter tdk ada yg sesuai dgn keyword--//
     console.log(`\nTidak ditemukan buku dengan judul mengandung keyword "${title}".`)
@@ -67,7 +67,7 @@ export function searchBook( title?: string ): void {
   // --jika 2 kondisi "if" di atas tidak terpenuhi maka dibawah ini yang akan dieksekusi-- //
   console.log(`\nHasil pencarian dengan keyword "${title}" (${filteredBook.length} ditemukan) :`);
 
-  filteredBook.forEach((book, index) => { //--forEach() untuk mengolah setiap data hasil filter--//
+  filteredBook.forEach((book, index) => { 
     console.log(`${index + 1}. ${book.title}`);
     console.log(`   Pengarang    : ${book.author}`);
     console.log(`   Tahun Terbit : ${book.publicationYear}`);

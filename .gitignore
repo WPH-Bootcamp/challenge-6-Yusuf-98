@@ -10,13 +10,9 @@ build
 *.local
 
 # Environment files
-.env
-.env.local
 .env.*.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -40,3 +36,8 @@ coverage
 
 # TypeScript
 *.tsbuildinfo
+config.bat
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
